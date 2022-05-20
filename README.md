@@ -47,17 +47,23 @@ https://www.jianshu.com/p/7e2f32b7aca0
 
 X表示：神经网络的输入矩阵：
 
-输入矩阵
+输入矩阵![image](https://user-images.githubusercontent.com/33678772/169532036-961eda3b-1182-402f-8987-94f1219bee7d.png)
+
 y表示：神经网络的最终输出矩阵：
 
-输出矩阵
+输出矩阵![image](https://user-images.githubusercontent.com/33678772/169532072-8312fc50-2f1b-452d-a8d9-6ed24068d933.png)
+
 表示：第l层隐藏层的第i个神经元的输出，设第l层的有k个神经元，则第l层的输出为：
 
-第l层的输出
+第l层的输出![image](https://user-images.githubusercontent.com/33678772/169532121-ea4f3cd9-1fde-4cc9-8d42-36c9356e2663.png)
+
+![image](https://user-images.githubusercontent.com/33678772/169532193-94f924bd-5728-4a1e-be2b-dd25d6edc00f.png)
 表示：第l-1层的第j个神经元和第l层的第i个神经元的连接权重，即两个神经元之间的突触
 
+![image](https://user-images.githubusercontent.com/33678772/169532234-ec7134e3-de38-4f6f-9c58-2d9baf3ff698.png)
 表示：第l层第i个神经元的偏置项
 
+![image](https://user-images.githubusercontent.com/33678772/169532275-f913a15d-f87e-41ec-8bfc-2fb29f4ccc61.png)
 表示：第l层第i个神经元的输入
 
 二、前向传播算法
