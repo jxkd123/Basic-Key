@@ -74,10 +74,12 @@ y表示：神经网络的最终输出矩阵：
 
 设对于第l层的第i个神经元，有l-1层的n个神经元与该神经元有突触相连，则
 
-第l层的第i个神经元的输入为：
+第l层的第i个神经元的输入为：![image](https://user-images.githubusercontent.com/33678772/169532457-a672967f-09e2-48c5-9bd7-36f15c678c5a.png)
+
 
 第l层的第i个神经元的输入
-第l层的第i个神经元的输出为：
+第l层的第i个神经元的输出为：![image](https://user-images.githubusercontent.com/33678772/169532510-8ad50f25-5088-4d00-aace-4c76308ffc89.png)
+
 
 第l层的第i个神经元的输出
 其中f(.)表示神经元的激活函数
@@ -92,17 +94,22 @@ y表示：神经网络的最终输出矩阵：
 
 （1）sigmod函数
 
-sigmod函数
+sigmod函数![image](https://user-images.githubusercontent.com/33678772/169532574-8c3a0ff7-8cff-467b-9542-c5c14dfaafb9.png)
+
 其导数为
+![image](https://user-images.githubusercontent.com/33678772/169532597-3154e4c8-fc21-4225-adb2-7310278befc7.png)
 
 sigmod导数
 （2）双曲正切函数
 
-双曲正切函数
-其导数为
+双曲正切函数![image](https://user-images.githubusercontent.com/33678772/169532620-11fb42fe-1df1-4a1a-8469-4833c7e02c22.png)
+
+其导数为![image](https://user-images.githubusercontent.com/33678772/169532653-b749b02d-1f25-40d9-9027-0f23966d39d4.png)
+
 
 双曲正切函数导数
 （3）ReLU函数
+![image](https://user-images.githubusercontent.com/33678772/169532690-07a0bf90-c732-47ea-ae7d-aa502044320a.png)
 
 ReLU函数
 四、经典损失函数
@@ -122,9 +129,11 @@ ReLU函数
 我们需要事先定义一个场景（规模），准备好若干样例样本和定义好的所有类目，然后训练神经网络模型学习这个样本的分类逻辑规则，最后对于输入的任何一个新样本，模型都可以输出其所属的类目
 
 需要注意的是，在分类问题的最终输出结果里，由于我们将“一个样例属于某一个类别”视为一个概率事件，则该样例属于所有类目的各自概率就构成了该样例的概率分布，而神经网络的输出却不一定是概率分布，为此我们可以用softmax将结果转化为概率分布：
+![image](https://user-images.githubusercontent.com/33678772/169532760-62108dc7-f6af-4304-9533-c3d06939d343.png)
 
 softmax输出概率分布
 最后我们使用交叉熵函数，来描述模型输出概率分布p和真实概率分布q之间的距离，即量化其分类损失
+![image](https://user-images.githubusercontent.com/33678772/169532786-7156e804-3c0c-4698-bcc6-245eb7223f70.png)
 
 交叉熵函数
 （2）对于回归问题：
@@ -132,6 +141,7 @@ softmax输出概率分布
 我们需要事先准备一组输入输出的数据样本集，然后训练神经网络模型学习这个样本的输入输出映射法则，最后对于任意一个实数R，模型都可以预测出一个具体的数值
 
 我们可以用MSE（均方误差）来描述模型输出结果和真实结果的距离，即量化其回归损失
+![image](https://user-images.githubusercontent.com/33678772/169532815-c5cf1a71-ffc5-4be8-85bc-b112f3972257.png)
 
 MSE函数
 五、神经网络的优化过程
@@ -144,50 +154,69 @@ MSE函数
 
 至此我们可以看到反向传播算法的艺术为：
 
+
 反向计算出损失函数对每一层隐藏层的突触的梯度，并更新优化其上一层隐藏层的突触。使得神经网络每一次学习到的模型都变得更加聪明
 
 六、反向传播算法的推导
 
 我们先整理出前向传播算法中第l隐藏层的第i个神经元的输入和输出为
-
+![image](https://user-images.githubusercontent.com/33678772/169532868-17f3622e-9da8-435f-a417-6b8455b48812.png)
 第l层第i个神经元的输入
+![image](https://user-images.githubusercontent.com/33678772/169533037-ffc1d0cb-b478-4abe-a61f-c4caefcebe73.png)
+
 第l层第i个神经元的输出
 结合上面两个式子，可以得到第l层第i个神经元的输入和第l-1层第i的神经元的输出的函数关系为
+![image](https://user-images.githubusercontent.com/33678772/169533086-445f75d4-f23e-46b4-aa5d-878c2a5b20b0.png)
 
 第l层第i个神经元的输入
 为了推导方便，我们定义第i个神经元的损失函数为
+![image](https://user-images.githubusercontent.com/33678772/169533111-1a174b9d-4806-465e-a110-92705c8ba6c1.png)
 
 第i个神经元的损失函数
 其中dk(i)表示第i个神经元的真实输出值，yk(i)表示神经网络模型计算出的输出值
 
-下面推导第i个神经元的误差对第l-1（）层第j个神经元对第l-2层第i个神经元的突触权重的梯度为：
+下面推导第i个神经元的误差对第l-1（![image](https://user-images.githubusercontent.com/33678772/169533283-65c39239-66cd-4ab4-8741-09c5058eae70.png)
+）层第j个神经元对第l-2层第i个神经元的突触权重的梯度为：
+![image](https://user-images.githubusercontent.com/33678772/169533344-ef7f4c86-5e65-4d7b-948b-bf40197dc48c.png)
 
 第l-1层第j个神经元的梯度计算1
 上式最后3个偏导数的意义为
+![image](https://user-images.githubusercontent.com/33678772/169533400-b07a2c94-6447-468a-bb51-3cebc5aa10a0.png)
 
 ：表示第l层的第k个神经元的输入对第l-1层的第j个神经元的输出的偏导数
+![image](https://user-images.githubusercontent.com/33678772/169533429-9644f5cf-b4e7-4184-a2ea-c8e35333407e.png)
 
 ：表示第l-1层的第j个神经元的输出对第l-1层的第j个神经元的输入的偏导数
+![image](https://user-images.githubusercontent.com/33678772/169533457-17af518a-b304-4996-b893-96f27f105663.png)
 
 ：表示第l-1层的第j个神经元的输入对第l-1层第j个神经元和第l-2层第i个神经元的权重的偏导数
 
 分别计算出这3个偏导数为
+![image](https://user-images.githubusercontent.com/33678772/169533503-afb63d8e-8701-41ae-9a46-34e1542a7976.png)
 
 第一个偏导数
+![image](https://user-images.githubusercontent.com/33678772/169533540-a0ecc173-780f-47a1-9a7f-f7a8ed31b336.png)
+
 第二个偏导数
+![image](https://user-images.githubusercontent.com/33678772/169533568-a50b9b2f-df69-4a48-a829-da2ac2924652.png)
+
 第三个偏导数
 带入这三个偏导数，得
+![image](https://user-images.githubusercontent.com/33678772/169533611-71af8ac3-394b-41c6-b649-46cf4f000cb2.png)
 
 第l-1层第j个神经元的梯度计算2
 同理可以推导出第l-1层第j个神经元的偏置项梯度为：
+![image](https://user-images.githubusercontent.com/33678772/169533748-3c5acaea-b38e-4cc2-aa8a-4b332b4b9e8c.png)
 
 第l-1层第j个神经元的偏置项梯度
 为了方便整理输出结果，我们定义
+![image](https://user-images.githubusercontent.com/33678772/169533695-ea235eaa-7ffb-47ac-8d96-243ede4ba9d0.png)
 
 每一层隐藏层的误差系数
 可以整理出第l-1层的第j个神经元的权重梯度和偏置项梯度为：
+![image](https://user-images.githubusercontent.com/33678772/169533814-60602020-9893-46f1-912c-92e1c58db2bf.png)
 
-                                                                     
+                                                                     
 
                                                                      
 
