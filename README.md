@@ -31,6 +31,9 @@ https://www.jianshu.com/p/7e2f32b7aca0
 
 一、多层神经网络的数学模型
 
+![image](https://user-images.githubusercontent.com/33678772/169531906-3a168110-868d-437e-9cb1-366f81724fba.png)
+
+
 通常一个多层神经网络由L层神经元组成，分为输入层、输出层和隐藏层
 
 输入层：神经网络的第一层，表示一列或多列矩阵的输入
