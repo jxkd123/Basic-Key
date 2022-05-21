@@ -33,6 +33,8 @@ https://www.jianshu.com/p/7e2f32b7aca0
 
 11、结果分析
 
-损失函数对参数梯度的反向传播的推导，迭代计算损失函数对各级权重参数的导数
+step3：损失函数对参数梯度的反向传播的推导，迭代计算损失函数对各级权重参数的导数
 https://blog.csdn.net/qq_32865355/article/details/80260212
 
+step4：机器学习/深度学习中的矩阵求导
+https://zhuanlan.zhihu.com/p/407043909
